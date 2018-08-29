@@ -15,7 +15,7 @@ import torch.backends.cudnn as cudnn
 from torch.autograd import Variable
 from torch.optim.lr_scheduler import ReduceLROnPlateau
 import numpy as np
-import torchvision
+from torchvision import *
 import dataloader
 import matplotlib.pyplot as plt
 import matplotlib.image as mpimg
@@ -323,3 +323,7 @@ temp_scheduler = lr_scheduler.StepLR(temp_optimizer, step_size=10, gamma=0.1)
 
 [spat_model, temp_model] = train_model(spat_model, spat_criterion, spat_optimizer, spat_scheduler,
                                        temp_model, temp_criterion, temp_optimizer, temp_scheduler, num_epochs=25)
+
+print "Saving Models ..."
+torch.save(spat_model, 'spat_model.pt')
+torch.save(temp_model, 'temp_model.pt')
