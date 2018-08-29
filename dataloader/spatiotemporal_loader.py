@@ -165,7 +165,10 @@ class spatio_temporal_dataloader():
         #making a training dictionary i.e. a list of video number with no_of_frames
         self.dic_training={}
         for video in self.train_video:
-            nb_frame = self.frame_count[video]
+            if video in self.frame_count:
+                nb_frame = self.frame_count[video]
+            else:
+                continue
             if(nb_frame > 100):
                 key = video+' '+ str(nb_frame)
                 self.dic_training[key] = self.train_video[video]
@@ -176,8 +179,10 @@ class spatio_temporal_dataloader():
         #similarly making a validation dictionary
         self.dic_testing={}
         for video in self.test_video:
-            nb_frame = self.frame_count[video]
-            #choosing inly those videos with frames > 50
+            if video in self.frame_count:
+                nb_frame = self.frame_count[video]
+            else:
+                continue            #choosing inly those videos with frames > 50
             if(nb_frame > 100):
                 key = video+ ' '+str(nb_frame)
                 self.dic_testing[key] = self.test_video[video] 
