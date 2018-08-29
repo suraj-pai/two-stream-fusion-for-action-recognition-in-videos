@@ -50,7 +50,7 @@ class UCF101_splitter():
     def make_dict(self,dic):
         dic2 = {}
         for video in dic:
-            dic2[videoname] = dic[video]
+            dic2[video] = dic[video]
         return dic2
 
 
