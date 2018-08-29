@@ -15,7 +15,7 @@ import torch.backends.cudnn as cudnn
 from torch.autograd import Variable
 from torch.optim.lr_scheduler import ReduceLROnPlateau
 import numpy as np
-import torchvision
+from torchvision import *
 import dataloader
 import matplotlib.pyplot as plt
 import matplotlib.image as mpimg
